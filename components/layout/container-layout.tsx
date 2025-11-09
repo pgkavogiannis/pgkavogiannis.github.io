@@ -2,12 +2,12 @@ import clsx from "clsx";
 import React from 'react';
 
 type ContainerLayoutProps = {
-	children?: JSX.Element;
-	className?: string;
-}
+    children?: React.ReactNode;
+    className?: string;
+};
 
-export const ContainerLayout: React.FC<ContainerLayoutProps> = ({children, className}) => (
-		<div className={clsx('lg:container lg:mx-auto p-1 lg:p-4', className)}>
-			{children}
-		</div>
+export const ContainerLayout: React.FC<ContainerLayoutProps> = ({ children, className }) => (
+    <div className={clsx("container mx-auto px-4 py-6", className)}>
+        {children}
+    </div>
 );

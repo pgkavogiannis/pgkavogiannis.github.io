@@ -1,10 +1,10 @@
-import {Footer} from "./Footer";
-import {Header} from './Header';
-import React from "react";
+import { Footer } from "./Footer";
+import { Header } from './Header';
+import React, { JSX } from 'react';
 
 type LayoutProps = {
-	children?: JSX.Element;
-}
+    children?: JSX.Element;
+};
 
 export const Layout: React.FC<LayoutProps> = ({children}) => (<>
 	<Header/>
