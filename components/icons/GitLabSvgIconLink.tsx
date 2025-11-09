@@ -1,5 +1,5 @@
 import React from 'react';
-import { SvgIconLink } from '../utility/SvgIconLink';
+import { SvgIconLink } from './SvgIconLink';
 
 const svgPaths = [
     'M24 43L16 20 32 20z',
@@ -12,5 +12,5 @@ const svgPaths = [
 ];
 
 export const GitLabSvgIconLink: React.FC = () => (
-    <SvgIconLink href="https://gitlab.com/pgkavogiannis/" svgPaths={svgPaths}/>
+    <SvgIconLink svgPaths={svgPaths}/>
 );

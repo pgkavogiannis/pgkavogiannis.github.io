@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Configure DaisyUI traveljox theme */
+/* Configure DaisyUI portfolio theme */
 @plugin "daisyui/theme" {
-    name: traveljox;
+    name: portfolio;
     primary: #4db7fe;
     primary-content: #fff;
     secondary: #00beff;
@@ -24,7 +24,7 @@
 
 /* Set default themes */
 @theme {
-    --default-theme: traveljox;
+    --default-theme: portfolio;
     --default-dark-theme: business;
 }
 
@@ -86,4 +86,146 @@ a {
 
 * {
     box-sizing: border-box;
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ONLY ===== */
+
+/* Screen reader only - Hidden visually but visible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Show on focus - Tab key or keyboard navigation */
+.sr-only:focus,
+.sr-only:focus-visible {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: var(--space-8);
+    margin: var(--space-4);
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+}
+
+/* Keyboard focus indicators - ONLY visible on Tab key press */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    button,
+    a {
+        text-decoration: underline;
+        border-width: 2px;
+    }
+
+    .btn {
+        border: 2px solid var(--color-text);
+    }
+
+    .form-control {
+        border: 2px solid var(--color-text);
+    }
+
+    .card {
+        border: 2px solid var(--color-border);
+    }
+}
+
+/* Mobile accessibility enhancements */
+@media (max-width: 480px) {
+    .sr-only:focus,
+    .sr-only:focus-visible {
+        padding: var(--space-12);
+        margin: var(--space-8);
+        font-size: var(--font-size-lg);
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Increase touch target sizes for better accessibility on mobile */
+    :focus-visible {
+        outline-width: 3px;
+        outline-offset: 3px;
+    }
+}
+
+/* Fade in animation for scroll-to-top button */
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOutScale {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInScale var(--duration-normal) var(--ease-standard) forwards;
+}
+
+.animate-fade-out {
+    animation: fadeOutScale var(--duration-normal) var(--ease-standard) forwards;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+    .animate-fade-in {
+        animation: fadeInScale var(--duration-fast) var(--ease-standard) forwards;
+    }
+
+    .animate-fade-out {
+        animation: fadeOutScale var(--duration-fast) var(--ease-standard) forwards;
+    }
 }
