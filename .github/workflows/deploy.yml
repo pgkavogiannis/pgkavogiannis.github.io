@@ -1,0 +1,90 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.7.3]
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Step 2: Setup Node.js with the exact version from volta
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Step 3: Setup Yarn
+      - name: Setup Yarn
+        run: npm install -g yarn@1.22.22
+
+      # Step 4: Cache dependencies
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn/cache
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Step 5: Install dependencies
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      # Step 6: Run linter
+      - name: Run ESLint
+        run: yarn lint
+        continue-on-error: true
+
+      # Step 7: Build the Next.js project
+      - name: Build Next.js project
+        run: yarn build
+        env:
+          CI: true
+
+      # Step 8: Create .nojekyll file to bypass Jekyll
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
+
+      # Step 9: Deploy to GitHub Pages using actions/deploy-pages
+      - name: Configure Git for deployment
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      # Step 10: Add and commit the out directory to gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          cname: # Add your custom domain here if you have one (e.g., example.com)
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+
+      # Step 11: Print deployment info
+      - name: Print deployment info
+        run: |
+          echo "✅ Deployment completed successfully!"
+          echo "📍 Your portfolio is available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          echo "🌐 Or visit: https://${{ github.repository_owner }}.github.io/ (if this is your username repo)"
