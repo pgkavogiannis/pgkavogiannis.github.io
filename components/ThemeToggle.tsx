@@ -5,49 +5,31 @@ const business = 'business';
 
 export const ThemeToggle: React.FC = () => {
     const [theme, setTheme] = useState<'portfolio' | 'business' | null>(null);
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-
-        // Get saved theme or use system preference
-        const savedTheme = localStorage.getItem('theme') as 'portfolio' | 'business' | null;
-
-        if (savedTheme) {
-            setTheme(savedTheme);
-            applyTheme(savedTheme);
-        } else {
-            // Detect system preference
-            const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
-            const defaultTheme: 'portfolio' | 'business' = prefersDark ? business : portfolio;
-            setTheme(defaultTheme);
-            applyTheme(defaultTheme);
-        }
-    }, []);
 
     const applyTheme = (newTheme: 'portfolio' | 'business') => {
-        // Remove all theme attributes first
         delete document.documentElement.dataset.theme;
-
-        // Set new theme
         document.documentElement.dataset.theme = newTheme;
-
-        // Also set it on document for DaisyUI
         document.documentElement.classList.toggle('dark', newTheme === business);
-
-        // Save to localStorage
         localStorage.setItem('theme', newTheme);
-
-        // Update state
         setTheme(newTheme);
     };
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme') as 'portfolio' | 'business' | null;
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else {
+            const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(prefersDark ? business : portfolio);
+        }
+    }, []);
 
     const toggleTheme = () => {
         const newTheme = theme === portfolio ? business : portfolio;
         applyTheme(newTheme);
     };
 
-    if (!mounted) {
+    if (theme === null) {
         return (
             <button className="btn btn-sm btn-ghost rounded-full" disabled>
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
