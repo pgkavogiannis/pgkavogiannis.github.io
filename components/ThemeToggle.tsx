@@ -4,7 +4,6 @@ const portfolio = 'portfolio';
 const business = 'business';
 
 export const ThemeToggle: React.FC = () => {
-
     const [theme, setTheme] = useState<'portfolio' | 'business' | null>(null);
     const [mounted, setMounted] = useState(false);
 

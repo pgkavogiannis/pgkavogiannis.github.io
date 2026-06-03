@@ -23,12 +23,8 @@ export const ContactSection: React.FC = () => (
                     {/* Contact Methods Grid - Improved Contrast */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
                         {/* Email Card */}
-                        <a
-                            href="mailto:panagiotis.gkavogiannis@proton.me"
-                            className="group transition-all duration-300 hover:scale-105"
-                        >
-                            <div
-                                className="bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <a href="mailto:panagiotis.gkavogiannis@proton.me" className="group transition-all duration-300 hover:scale-105">
+                            <div className="bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
                                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">✉️</div>
                                 <p className="text-sm font-bold text-tj-dark-blue opacity-70 mb-2 uppercase tracking-wide">Email</p>
                                 <p className="font-bold text-lg text-tj-dark-blue break-all hover:text-primary transition-colors">
@@ -45,8 +41,7 @@ export const ContactSection: React.FC = () => (
                             rel="noopener noreferrer"
                             className="group transition-all duration-300 hover:scale-105"
                         >
-                            <div
-                                className="bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <div className="bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
                                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">💼</div>
                                 <p className="text-sm font-bold text-tj-dark-blue opacity-70 mb-2 uppercase tracking-wide">LinkedIn</p>
                                 <p className="font-bold text-lg text-tj-dark-blue hover:text-primary transition-colors">View Profile</p>
@@ -61,8 +56,7 @@ export const ContactSection: React.FC = () => (
                             rel="noopener noreferrer"
                             className="group transition-all duration-300 hover:scale-105"
                         >
-                            <div
-                                className="bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <div className="bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
                                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">👨‍💻</div>
                                 <p className="text-sm font-bold text-tj-dark-blue opacity-70 mb-2 uppercase tracking-wide">GitHub</p>
                                 <p className="font-bold text-lg text-tj-dark-blue hover:text-primary transition-colors">View Projects</p>

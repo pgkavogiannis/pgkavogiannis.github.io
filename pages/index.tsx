@@ -9,8 +9,14 @@ const Home: NextPageWithLayout = () => (
         <Head>
             {/* Primary Meta Tags */}
             <title>Panagiotis Gkavogiannis | Full Stack Software Engineer</title>
-            <meta name="description" content="Full Stack Software Engineer with 5+ years of experience in React, TypeScript, PHP, and JavaEE. I build scalable, well-documented web applications using modern technologies. Available for new projects." />
-            <meta name="keywords" content="Full Stack Developer, React Developer, TypeScript, JavaScript, Software Engineer, Athens, Greece, Web Development" />
+            <meta
+                name="description"
+                content="Full Stack Software Engineer with 5+ years of experience in React, TypeScript, PHP, and JavaEE. I build scalable, well-documented web applications using modern technologies. Available for new projects."
+            />
+            <meta
+                name="keywords"
+                content="Full Stack Developer, React Developer, TypeScript, JavaScript, Software Engineer, Athens, Greece, Web Development"
+            />
             <meta name="author" content="Panagiotis Gkavogiannis" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta charSet="UTF-8" />
@@ -19,7 +25,10 @@ const Home: NextPageWithLayout = () => (
             <meta property="og:type" content="website" />
             <meta property="og:url" content="https://pgkavogiannis.github.io/" />
             <meta property="og:title" content="Panagiotis Gkavogiannis | Full Stack Software Engineer" />
-            <meta property="og:description" content="Full Stack Software Engineer with expertise in React, TypeScript, PHP, and JavaEE. Building scalable web applications." />
+            <meta
+                property="og:description"
+                content="Full Stack Software Engineer with expertise in React, TypeScript, PHP, and JavaEE. Building scalable web applications."
+            />
             <meta property="og:image" content="https://pgkavogiannis.github.io/og-image.png" />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />

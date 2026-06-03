@@ -8,7 +8,11 @@ export const HeroSection: React.FC = () => (
                 {/* Avatar */}
                 <div className="avatar">
                     <div className="w-32 md:w-40 rounded-full ring-4 ring-primary ring-offset-2 ring-offset-tj-dark-blue overflow-hidden">
-                        <img src="https://avatars.githubusercontent.com/u/59098876?v=4" alt="Panagiotis Gkavogiannis" className="w-full h-full object-cover"/>
+                        <img
+                            src="https://avatars.githubusercontent.com/u/59098876?v=4"
+                            alt="Panagiotis Gkavogiannis"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                 </div>
 

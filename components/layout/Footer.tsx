@@ -20,7 +20,10 @@ export const Footer: React.FC = () => (
                         <a href="#about" className="block link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
                             About Me
                         </a>
-                        <a href="#experience" className="block link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
+                        <a
+                            href="#experience"
+                            className="block link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
+                        >
                             Experience
                         </a>
                         <a href="#skills" className="block link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
@@ -36,19 +39,37 @@ export const Footer: React.FC = () => (
                 <div>
                     <h4 className="font-bold text-lg mb-6 border-b-2 border-primary pb-3">Connect</h4>
                     <nav className="space-y-3" aria-label="Social media links">
-                        <a href="https://linkedin.com/in/panagiotis.gkavogiannis" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
+                        <a
+                            href="https://linkedin.com/in/panagiotis.gkavogiannis"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
+                        >
                             <LinkedInSvgIconLink />
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/pgkavogiannis" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
+                        <a
+                            href="https://github.com/pgkavogiannis"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
+                        >
                             <GitHubSvgIconLink />
                             <span>GitHub</span>
                         </a>
-                        <a href="https://gitlab.com/pgkavogiannis" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
+                        <a
+                            href="https://gitlab.com/pgkavogiannis"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
+                        >
                             <GitLabSvgIconLink />
                             <span>GitLab</span>
                         </a>
-                        <a href="mailto:panagiotis.gkavogiannis@proton.me" className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
+                        <a
+                            href="mailto:panagiotis.gkavogiannis@proton.me"
+                            className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
+                        >
                             <MailSvgIconLink />
                             <span>Email</span>
                         </a>

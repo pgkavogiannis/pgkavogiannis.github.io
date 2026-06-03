@@ -11,7 +11,7 @@ interface SkillsSectionProps {
     technologies: string[];
 }
 
-export const SkillsSection: React.FC<SkillsSectionProps> = ({languages, technologies}) => (
+export const SkillsSection: React.FC<SkillsSectionProps> = ({ languages, technologies }) => (
     <section id="skills" className="py-4 md:py-8 bg-gradient-to-br from-base-100 to-base-200">
         <ContainerLayout>
             <h2 className="text-3xl md:text-4xl font-bold mb-12 border-b-4 border-secondary pb-4">Skills & Tech Stack</h2>
@@ -23,8 +23,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({languages, technolo
                         <h3 className="card-title text-2xl mb-6 text-secondary">Languages</h3>
                         <div className="space-y-3">
                             {languages.map((lang) => (
-                                <div key={lang.name}
-                                     className="flex justify-between items-center p-3 bg-base-200 rounded-lg hover:bg-base-300 transition">
+                                <div
+                                    key={lang.name}
+                                    className="flex justify-between items-center p-3 bg-base-200 rounded-lg hover:bg-base-300 transition"
+                                >
                                     <span className="font-semibold text-base-content">{lang.name}</span>
                                     <span className="badge badge-secondary">{lang.level}</span>
                                 </div>
@@ -39,7 +41,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({languages, technolo
                         <h3 className="card-title text-2xl mb-6 text-primary">Technologies & Tools</h3>
                         <div className="flex flex-wrap gap-2">
                             {technologies.map((tech) => (
-                                <span key={tech} className="badge badge-lg badge-primary text-white">{tech}</span>
+                                <span key={tech} className="badge badge-lg badge-primary text-white">
+                                    {tech}
+                                </span>
                             ))}
                         </div>
                     </div>

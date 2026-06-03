@@ -11,7 +11,7 @@ const jobs = [
         jobPeriod: 'October 2022 - Present',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
-            'Developed and supported applications for European Commission\'s Customs Offices using JavaEE and Angular.' +
+            "Developed and supported applications for European Commission's Customs Offices using JavaEE and Angular." +
             'Utilized tools like Jenkins, WebLogic, Jira and Monday.com for efficient project management.' +
             'Mentored newcomers by documenting core concepts on Confluence to facilitate on-boarding.',
     },
@@ -67,14 +67,7 @@ const technologies = [
     'Maven',
 ];
 
-const skillBadges = [
-    'Clean Code',
-    'Documentation',
-    'Collaboration',
-    'Problem Solving',
-    'Full Stack Development',
-    'Scalability',
-];
+const skillBadges = ['Clean Code', 'Documentation', 'Collaboration', 'Problem Solving', 'Full Stack Development', 'Scalability'];
 
 export const MainContent: React.FC = () => (
     <>

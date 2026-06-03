@@ -5,7 +5,7 @@ interface AboutSectionProps {
     skillBadges: string[];
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({skillBadges}) => (
+export const AboutSection: React.FC<AboutSectionProps> = ({ skillBadges }) => (
     <section id="about" className="py-4 md:py-8 bg-base-100">
         <ContainerLayout>
             <div className="card bg-gradient-to-r from-base-100 to-base-200 shadow-lg border border-primary border-opacity-20">
@@ -29,7 +29,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({skillBadges}) => (
                         <h3 className="text-lg font-semibold mb-4 text-primary">Core Competencies</h3>
                         <div className="flex flex-wrap gap-3">
                             {skillBadges.map((skill) => (
-                                <span key={skill} className="badge badge-lg badge-primary text-white">{skill}</span>
+                                <span key={skill} className="badge badge-lg badge-primary text-white">
+                                    {skill}
+                                </span>
                             ))}
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
 
 /* Configure DaisyUI portfolio theme */
@@ -12,9 +12,9 @@
     neutral-content: #fff;
     base-100: #f9f9f9;
     info: #ffffff;
-    success: #1D9581;
-    warning: #FAB36B;
-    error: #E92F3C;
+    success: #1d9581;
+    warning: #fab36b;
+    error: #e92f3c;
 }
 
 /* Business theme (dark) */
@@ -75,8 +75,18 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe UI,
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        Fira Sans,
+        Droid Sans,
+        Helvetica Neue,
+        sans-serif;
 }
 
 a {
