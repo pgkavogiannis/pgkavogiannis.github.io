@@ -15,7 +15,7 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [21.7.3]
+                node-version: [24.16.0]
 
         steps:
             # Step 1: Checkout the repository
@@ -84,7 +84,10 @@ jobs:
 
             # Step 11: Print deployment info
             - name: Print deployment info
+              env:
+                  REPO_OWNER: ${{ github.repository_owner }}
+                  REPO_NAME: ${{ github.event.repository.name }}
               run: |
                   echo "✅ Deployment completed successfully!"
-                  echo "📍 Your portfolio is available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
-                  echo "🌐 Or visit: https://${{ github.repository_owner }}.github.io/ (if this is your username repo)"
+                  echo "📍 Your portfolio is available at: https://${REPO_OWNER}.github.io/${REPO_NAME}"
+                  echo "🌐 Or visit: https://${REPO_OWNER}.github.io/ (if this is your username repo)"
