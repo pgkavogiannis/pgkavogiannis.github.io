@@ -27,7 +27,7 @@ yarn deploy       # Build, create .nojekyll, and push to gh-pages branch
 ## Architecture
 
 ```
-/pages                    # Next.js pages with per-page layout pattern
+/pages                   # Next.js pages with per-page layout pattern
   ├── _app.tsx           # App wrapper implementing getLayout pattern
   └── index.tsx          # Homepage
 

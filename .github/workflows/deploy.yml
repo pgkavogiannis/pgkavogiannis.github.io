@@ -30,16 +30,16 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
 
-            # Step 3: Setup Yarn
-            - name: Setup Yarn
-              run: npm install -g yarn@1.22.22
+            # Step 3: Enable corepack (reads packageManager from package.json)
+            - name: Enable corepack
+              run: corepack enable
 
             # Step 4: Cache dependencies
             - name: Cache dependencies
-              uses: actions/cache@v3
+              uses: actions/cache@v4
               with:
                   path: |
-                      ~/.yarn/cache
+                      .yarn/cache
                       node_modules
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
@@ -47,7 +47,7 @@ jobs:
 
             # Step 5: Install dependencies
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: yarn install --immutable
               env:
                   CI: true
 

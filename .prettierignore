@@ -4,3 +4,6 @@ out
 *.min.js
 *.min.css
 yarn.lock
+
+# Claude Code tool config (plans, settings)
+.claude/
