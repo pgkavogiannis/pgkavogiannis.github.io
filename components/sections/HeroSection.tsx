@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => (
                 {/* Title & Subtitle */}
                 <div className="space-y-3">
                     <h1 className="text-4xl md:text-6xl font-bold text-neutral-content/80">Panagiotis Gkavogiannis</h1>
-                    <p className="text-2xl md:text-3xl font-semibold text-secondary">Full Stack Software Engineer</p>
+                    <p className="text-2xl md:text-3xl font-semibold text-secondary">Tech Lead / Team Lead</p>
                     <p className="text-lg text-neutral-content/80 max-w-2xl mx-auto leading-relaxed">
                         Building scalable, well-documented web applications with modern technologies. Passionate about clean code,
                         collaboration, and continuous learning.

@@ -2,13 +2,22 @@ import React from 'react';
 import { HeroSection } from '../sections/HeroSection';
 import { AboutSection } from '../sections/AboutSection';
 import { ExperienceSection } from '../sections/ExperienceSection';
+import { ProjectsSection } from '../sections/ProjectsSection';
 import { SkillsSection } from '../sections/SkillsSection';
 import { ContactSection } from '../sections/ContactSection';
 
 const jobs = [
     {
+        jobTitle: 'Tech Lead / Team Lead',
+        jobPeriod: 'June 2026 - Present',
+        companyTitle: 'Sword Services Greece S.A.',
+        jobDescription:
+            'Leading a cross-functional engineering team delivering applications for European Commission Customs Offices. ' +
+            'Driving technical direction, code quality standards, and team mentoring while contributing hands-on to JavaEE and Angular development.',
+    },
+    {
         jobTitle: 'Full Stack Software Engineer',
-        jobPeriod: 'October 2022 - Present',
+        jobPeriod: 'October 2022 - May 2026',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
             "Developed and supported applications for European Commission's Customs Offices using JavaEE and Angular." +
@@ -67,13 +76,32 @@ const technologies = [
     'Maven',
 ];
 
-const skillBadges = ['Clean Code', 'Documentation', 'Collaboration', 'Problem Solving', 'Full Stack Development', 'Scalability'];
+const skillBadges = [
+    'Clean Code',
+    'Documentation',
+    'Collaboration',
+    'Problem Solving',
+    'Full Stack Development',
+    'Scalability',
+    'Leadership',
+];
+
+const projects = [
+    {
+        title: 'misthotosifreelancer.gr',
+        description:
+            'A Greek net income calculator for freelancers. Helps independent professionals estimate their take-home pay after taxes and social contributions.',
+        url: 'https://misthotosifreelancer.gr',
+        tech: ['React', 'TypeScript', 'Vite'],
+    },
+];
 
 export const MainContent: React.FC = () => (
     <>
         <HeroSection />
         <AboutSection skillBadges={skillBadges} />
         <ExperienceSection jobs={jobs} />
+        <ProjectsSection projects={projects} />
         <SkillsSection languages={languages} technologies={technologies} />
         <ContactSection />
     </>
