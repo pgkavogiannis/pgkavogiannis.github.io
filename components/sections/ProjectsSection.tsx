@@ -25,11 +25,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                     >
                         <div className="card-body">
                             <h3 className="text-xl md:text-2xl font-bold text-primary">{project.title}</h3>
-                            <p className="text-base-content/80 leading-relaxed mb-4">{project.description}</p>
+                            <p className="text-base-content leading-relaxed mb-4">{project.description}</p>
 
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {project.tech.map((t) => (
-                                    <span key={t} className="badge badge-outline badge-primary text-xs">
+                                    <span key={t} className="badge badge-outline text-xs">
                                         {t}
                                     </span>
                                 ))}
