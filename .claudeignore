@@ -2,19 +2,15 @@
 
 # Claude internals
 .claude/
-SESSION_NOTES.md
 
 # Dependencies
 node_modules/
-jspm_packages/
-bower_components/
 
 # Build outputs
 dist/
 dist-ssr/
 build/
 out/
-lib/
 *.tsbuildinfo
 .next/
 .nuxt/
@@ -57,8 +53,6 @@ pnpm-lock.yaml
 .env
 .env.*
 !.env.example
-.env.local
-.env.production
 *.local
 
 # OS files
@@ -73,11 +67,10 @@ temp/
 
 # Testing
 .jest/
-.vitest/
 
 # Version control
 .git/
 
 # Misc
-public/
-/src/assets
+public/images/
+public/fonts/
