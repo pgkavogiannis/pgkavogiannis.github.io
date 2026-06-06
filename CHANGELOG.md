@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `.gitattributes` — git line-ending normalization (LF) and binary file markers
+- `renovate.json` — automated dependency updates (devDep patch/minor auto-merged every Monday before 6am)
+
 ### Changed
 
 ### Deprecated
