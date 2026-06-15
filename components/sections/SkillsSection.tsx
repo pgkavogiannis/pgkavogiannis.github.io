@@ -6,12 +6,19 @@ interface Language {
     level: string;
 }
 
+interface Certification {
+    name: string;
+    issuer: string;
+    year: string;
+}
+
 interface SkillsSectionProps {
     languages: Language[];
     technologies: string[];
+    certifications: Certification[];
 }
 
-export const SkillsSection: React.FC<SkillsSectionProps> = ({ languages, technologies }) => (
+export const SkillsSection: React.FC<SkillsSectionProps> = ({ languages, technologies, certifications }) => (
     <section id="skills" className="py-4 md:py-8 bg-gradient-to-br from-base-100 to-base-200">
         <ContainerLayout>
             <h2 className="text-3xl md:text-4xl font-bold mb-12 border-b-4 border-secondary pb-4">Skills & Tech Stack</h2>
@@ -46,6 +53,30 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ languages, technol
                                 </span>
                             ))}
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="card bg-base-100 shadow-md border border-secondary border-opacity-30 mt-8">
+                <div className="card-body">
+                    <h3 className="card-title text-2xl mb-6 text-secondary">Certifications</h3>
+                    <div className="flex flex-col gap-3">
+                        {certifications.map((cert) => (
+                            <div
+                                key={cert.name}
+                                className="flex justify-between items-center p-3 bg-base-200 rounded-lg hover:bg-base-300 transition"
+                            >
+                                <div className="flex items-center gap-3">
+                                    <i className="fa-brands fa-aws text-2xl text-[#FF9900]" aria-hidden="true" />
+                                    <div>
+                                        <p className="font-semibold text-base-content">{cert.name}</p>
+                                        <p className="text-sm text-base-content/70">{cert.issuer}</p>
+                                    </div>
+                                </div>
+                                <span className="badge badge-secondary">{cert.year}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

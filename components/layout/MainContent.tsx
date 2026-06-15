@@ -86,6 +86,14 @@ const skillBadges = [
     'Leadership',
 ];
 
+const certifications = [
+    {
+        name: 'AWS Certified Solutions Architect – Associate',
+        issuer: 'Amazon Web Services',
+        year: '2026',
+    },
+];
+
 const projects = [
     {
         title: 'misthotosifreelancer.gr',
@@ -102,7 +110,7 @@ export const MainContent: React.FC = () => (
         <AboutSection skillBadges={skillBadges} />
         <ExperienceSection jobs={jobs} />
         <ProjectsSection projects={projects} />
-        <SkillsSection languages={languages} technologies={technologies} />
+        <SkillsSection languages={languages} technologies={technologies} certifications={certifications} />
         <ContactSection />
     </>
 );

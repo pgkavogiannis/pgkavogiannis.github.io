@@ -95,6 +95,7 @@ const Home: NextPageWithLayout = () => (
                             'Docker',
                             'PostgreSQL',
                             'Full Stack Development',
+                            'AWS Certified Solutions Architect',
                         ],
                         worksFor: {
                             '@type': 'Organization',

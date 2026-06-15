@@ -9,9 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `.gitattributes` — git line-ending normalization (LF) and binary file markers
-- `renovate.json` — automated dependency updates (devDep patch/minor auto-merged every Monday before 6am)
-
 ### Changed
 
 ### Deprecated
@@ -21,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 ### Security
+
+## [0.2.0] - 2026-06-15
+
+### Added
+
+- `.gitattributes` — git line-ending normalization (LF) and binary file markers
+- `renovate.json` — automated dependency updates (devDep patch/minor auto-merged every Monday before 6am)
+- AWS Certified Solutions Architect – Associate certification to the Skills section with AWS brand icon
 
 ## [0.1.0] - 2025-11-05
 
