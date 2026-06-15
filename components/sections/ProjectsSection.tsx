@@ -29,7 +29,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
 
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {project.tech.map((t) => (
-                                    <span key={t} className="badge badge-outline text-xs">
+                                    <span key={t} className="badge badge-outline badge-primary text-xs">
                                         {t}
                                     </span>
                                 ))}
