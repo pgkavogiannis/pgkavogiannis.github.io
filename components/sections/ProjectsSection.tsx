@@ -4,7 +4,7 @@ import { ContainerLayout } from '../layout/container-layout';
 interface Project {
     title: string;
     description: string;
-    url: string;
+    url?: string;
     tech: string[];
 }
 
@@ -36,14 +36,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                             </div>
 
                             <div className="card-actions">
-                                <a
-                                    href={project.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-outline btn-primary btn-sm"
-                                >
-                                    Visit Site
-                                </a>
+                                {project.url ? (
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn btn-outline btn-primary btn-sm"
+                                    >
+                                        Visit Site
+                                    </a>
+                                ) : (
+                                    <span className="badge badge-outline badge-neutral">Archived</span>
+                                )}
                             </div>
                         </div>
                     </div>

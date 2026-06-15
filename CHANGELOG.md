@@ -19,6 +19,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [0.4.1] - 2026-06-15
+
+### Changed
+
+- About section bio no longer duplicates the hero text; replaced with a distinct location/environment-focused paragraph
+- TravelJox.com project card now shows an "Archived" badge instead of a broken "Visit Site" link
+
+### Fixed
+
+- Made `url` optional in the Project interface so archived projects render correctly without a link
+
 ## [0.4.0] - 2026-06-15
 
 ### Added

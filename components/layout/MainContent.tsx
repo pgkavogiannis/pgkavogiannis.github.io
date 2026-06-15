@@ -120,7 +120,6 @@ const projects = [
         title: 'TravelJox.com',
         description:
             'A booking platform for travel offices and end customers. Designed and developed end-to-end from architecture through deployment.',
-        url: 'https://traveljox.com',
         tech: ['React', 'AngularJS', 'JavaEE', 'EclipseLink', 'Maven', 'Apache TomEE'],
     },
 ];

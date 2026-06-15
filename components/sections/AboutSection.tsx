@@ -13,10 +13,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ skillBadges }) => (
                     <h2 className="card-title text-3xl md:text-4xl border-b-4 border-primary pb-4">About Me</h2>
 
                     <p className="text-base-content/80 leading-relaxed text-lg mb-4">
-                        Senior Full Stack Software Engineer with 6 years of experience delivering enterprise-grade applications for EU
-                        public sector clients — including the European Commission&apos;s Customs domain and the Greek Social Security Fund
-                        (EFKA). Specialised in JavaEE, Angular (eUI Framework), and event-driven architectures. Experienced in technical
-                        mentoring and structured knowledge transfer within regulated, compliance-heavy environments.
+                        Based in Athens, Greece, I have spent 6 years building enterprise software for high-stakes environments — from EU
+                        customs clearance systems to military health informatics. I thrive in regulated, compliance-heavy settings where
+                        precision and documentation matter as much as the code itself.
                     </p>
 
                     <p className="text-base-content/80 leading-relaxed text-lg mb-6">
