@@ -19,6 +19,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [0.3.1] - 2026-06-15
+
+### Fixed
+
+- Unify typography across all sections: project card titles now use `text-primary` (was `text-neutral`) to match Experience section job title styling
+- Standardize Skills section h2 underline to `border-primary` (was `border-secondary`) consistent with all other section headings
+- Align Languages and Certifications sub-card titles and borders to `primary` (was `secondary`) for uniform look within the Skills section
+
 ## [0.3.0] - 2026-06-15
 
 ### Fixed

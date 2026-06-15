@@ -24,7 +24,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                         className="card bg-gradient-to-r from-base-100 to-base-200 shadow-md border-l-4 border-primary hover:shadow-lg transition-shadow"
                     >
                         <div className="card-body">
-                            <h3 className="text-xl md:text-2xl font-bold text-neutral">{project.title}</h3>
+                            <h3 className="text-xl md:text-2xl font-bold text-primary">{project.title}</h3>
                             <p className="text-base-content leading-relaxed mb-4">{project.description}</p>
 
                             <div className="flex flex-wrap gap-2 mb-4">
