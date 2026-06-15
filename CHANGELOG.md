@@ -19,6 +19,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [0.3.0] - 2026-06-15
+
+### Fixed
+
+- Switch GitHub Actions deployment from `peaceiris/actions-gh-pages` (branch-push) to official `actions/upload-pages-artifact` + `actions/deploy-pages`, aligning with the repo's `build_type: workflow` Pages configuration
+- Add Projects nav link to header
+- Fix Visit Site button contrast in light mode on project cards
+
 ## [0.2.0] - 2026-06-15
 
 ### Added
