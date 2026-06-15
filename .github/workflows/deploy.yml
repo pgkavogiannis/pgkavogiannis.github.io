@@ -7,34 +7,39 @@ on:
         branches: [main, master]
 
 permissions:
-    contents: write
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: pages
+    cancel-in-progress: false
 
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
 
         strategy:
             matrix:
                 node-version: [24.16.0]
 
         steps:
-            # Step 1: Checkout the repository
             - name: Checkout repository
               uses: actions/checkout@v4
               with:
                   fetch-depth: 0
 
-            # Step 2: Setup Node.js with the exact version from volta
             - name: Setup Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
 
-            # Step 3: Enable corepack (reads packageManager from package.json)
             - name: Enable corepack
               run: corepack enable
 
-            # Step 4: Cache dependencies
             - name: Cache dependencies
               uses: actions/cache@v4
               with:
@@ -45,49 +50,31 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-yarn-
 
-            # Step 5: Install dependencies
             - name: Install dependencies
               run: yarn install --immutable
               env:
                   CI: true
 
-            # Step 6: Run linter
             - name: Run ESLint
               run: yarn lint
               continue-on-error: true
 
-            # Step 7: Build the Next.js project
             - name: Build Next.js project
               run: yarn build
               env:
                   CI: true
 
-            # Step 8: Create .nojekyll file to bypass Jekyll
             - name: Create .nojekyll file
               run: touch out/.nojekyll
 
-            # Step 9: Deploy to GitHub Pages using actions/deploy-pages
-            - name: Configure Git for deployment
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action"
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
 
-            # Step 10: Add and commit the out directory to gh-pages branch
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v3
+            - name: Upload Pages artifact
+              uses: actions/upload-pages-artifact@v3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./out
-                  cname: # Add your custom domain here if you have one (e.g., example.com)
-                  user_name: github-actions[bot]
-                  user_email: github-actions[bot]@users.noreply.github.com
+                  path: ./out
 
-            # Step 11: Print deployment info
-            - name: Print deployment info
-              env:
-                  REPO_OWNER: ${{ github.repository_owner }}
-                  REPO_NAME: ${{ github.event.repository.name }}
-              run: |
-                  echo "✅ Deployment completed successfully!"
-                  echo "📍 Your portfolio is available at: https://${REPO_OWNER}.github.io/${REPO_NAME}"
-                  echo "🌐 Or visit: https://${REPO_OWNER}.github.io/ (if this is your username repo)"
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
