@@ -36,12 +36,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                             </div>
 
                             <div className="card-actions">
-                                <a
-                                    href={project.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-outline btn-sm text-neutral-content"
-                                >
+                                <a href={project.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
                                     Visit Site
                                 </a>
                             </div>

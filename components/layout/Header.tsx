@@ -20,6 +20,9 @@ export const Header: React.FC = () => {
                         <a href="#experience" className="link link-hover text-neutral-content hover:text-secondary transition-colors">
                             Experience
                         </a>
+                        <a href="#projects" className="link link-hover text-neutral-content hover:text-secondary transition-colors">
+                            Projects
+                        </a>
                         <a href="#skills" className="link link-hover text-neutral-content hover:text-secondary transition-colors">
                             Skills
                         </a>
@@ -40,6 +43,9 @@ export const Header: React.FC = () => {
                         </a>
                         <a href="#experience" className="link link-hover text-neutral-content hover:text-secondary text-sm">
                             Experience
+                        </a>
+                        <a href="#projects" className="link link-hover text-neutral-content hover:text-secondary text-sm">
+                            Projects
                         </a>
                         <a href="#skills" className="link link-hover text-neutral-content hover:text-secondary text-sm">
                             Skills
