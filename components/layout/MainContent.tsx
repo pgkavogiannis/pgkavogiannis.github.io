@@ -12,44 +12,45 @@ const jobs = [
         jobPeriod: 'June 2026 - Present',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
-            'Leading a cross-functional engineering team delivering applications for European Commission Customs Offices. ' +
-            'Driving technical direction, code quality standards, and team mentoring while contributing hands-on to JavaEE and Angular development.',
+            "Leading a cross-functional engineering team delivering enterprise applications for the European Commission's Customs Offices. " +
+            'Setting technical direction, establishing code quality standards, and driving CI/CD quality gates in Jenkins. ' +
+            'Mentoring junior engineers and overseeing structured knowledge transfer through Confluence documentation.',
     },
     {
         jobTitle: 'Full Stack Software Engineer',
         jobPeriod: 'October 2022 - May 2026',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
-            "Developed and supported applications for European Commission's Customs Offices using JavaEE and Angular." +
-            'Utilized tools like Jenkins, WebLogic, Jira and Monday.com for efficient project management.' +
-            'Mentored newcomers by documenting core concepts on Confluence to facilitate on-boarding.',
+            "Engineered and maintained enterprise applications for the European Commission's Customs Offices using JavaEE (Maven, EclipseLink) and Angular (eUI Framework). " +
+            'Drove test coverage uplift across multiple modules, establishing quality gates in Jenkins CI/CD pipelines that reduced regression defects. ' +
+            'Led the local development migration to Azure Cloud, significantly reducing environment provisioning time. ' +
+            "Onboarded and mentored junior engineers, authoring Confluence knowledge articles now part of the team's standard onboarding programme.",
     },
     {
         jobTitle: 'Full Stack Software Engineer',
         jobPeriod: 'November 2021 - September 2022',
-        companyTitle: 'Hellenic Army',
+        companyTitle: 'Hellenic Army, KEPYES',
         jobDescription:
-            'Developed and supported military applications for Health Informatics at Hellenic Army using React, PHP (Symfony), and Docker.' +
-            'Collaborated with cross-functional teams to enhance Electronic Health Service Center (Η.Κ.Ε.Λ.Υ.) applications.' +
-            'Implemented innovative solutions to improve user experience and efficiency in military healthcare technology.',
+            'Developed and maintained H.K.E.L.Y. (Electronic Health Service Centre), a military health informatics platform, using React, PHP (Symfony), and Docker. ' +
+            'Delivered multiple features within a mandatory service period, operating under military-grade security and data classification requirements.',
     },
     {
         jobTitle: 'Full Stack Software Engineer',
         jobPeriod: 'May 2020 - September 2021',
         companyTitle: 'Intrasoft International | Athens, Greece',
         jobDescription:
-            'Developed and supported applications for PERSEUS product using JavaEE, Maven, Hibernate, and Primefaces. ' +
-            'Assisted in local development migration to Docker for improved efficiency. ' +
-            'Mentored newcomers by documenting core concepts on Confluence to facilitate on-boarding.' +
-            'Utilized tools like Kafka, Jenkins, Drools, jBPM, WebLogic, WildFly, and Jira.',
+            'Engineered applications for the PERSEUS product suite using JavaEE (Maven, Hibernate, Primefaces), deployed on WildFly and WebLogic. ' +
+            'Drove local development migration to Docker, improving team onboarding efficiency. ' +
+            'Leveraged Kafka, Drools, and jBPM for event-driven and rules-based processing pipelines. ' +
+            'Mentored newcomers and authored structured onboarding documentation on Confluence.',
     },
     {
         jobTitle: 'Software Trainee',
         jobPeriod: 'November 2019 - April 2020',
         companyTitle: 'Intrasoft International | Athens, Greece',
         jobDescription:
-            'Developed and supported applications for the Single Social Security Fund (EFKA) using JavaEE, Primefaces, and Oracle PL/SQL.' +
-            'Deployed applications on the Oracle WebLogic server and managed version control with Git and SVN.',
+            'Developed applications for the Single Social Security Fund (EFKA / e-ΕΦΚΑ) using JavaEE (Maven, JDBC), Primefaces, and Oracle PL/SQL. ' +
+            'Deployed applications on Oracle WebLogic; used both Git and SVN for version control.',
     },
 ];
 
@@ -60,20 +61,33 @@ const languages = [
 ];
 
 const technologies = [
-    'React',
+    'Java EE',
+    'Angular',
     'TypeScript',
+    'React',
     'Next.js',
-    'Tailwind CSS',
-    'PHP',
-    'Symfony',
-    'JavaEE',
-    'Docker',
-    'PostgreSQL',
-    'Oracle',
-    'Kafka',
-    'Jenkins',
-    'Git',
+    'SQL',
+    'Oracle PL/SQL',
     'Maven',
+    'Jenkins',
+    'Docker',
+    'Git',
+    'Azure Cloud',
+    'JMS',
+    'Kafka',
+    'Oracle WebLogic',
+    'WildFly',
+    'Apache TomEE',
+    'Hibernate',
+    'EclipseLink',
+    'Oracle DB',
+    'PostgreSQL',
+    'MariaDB',
+    'Drools',
+    'jBPM',
+    'Tailwind CSS',
+    'Jira',
+    'Confluence',
 ];
 
 const skillBadges = [
@@ -100,7 +114,14 @@ const projects = [
         description:
             'A Greek net income calculator for freelancers. Helps independent professionals estimate their take-home pay after taxes and social contributions.',
         url: 'https://misthotosifreelancer.gr',
-        tech: ['React', 'TypeScript', 'Vite'],
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    },
+    {
+        title: 'TravelJox.com',
+        description:
+            'A booking platform for travel offices and end customers. Designed and developed end-to-end from architecture through deployment.',
+        url: 'https://traveljox.com',
+        tech: ['React', 'AngularJS', 'JavaEE', 'EclipseLink', 'Maven', 'Apache TomEE'],
     },
 ];
 

@@ -21,8 +21,10 @@ export const HeroSection: React.FC = () => (
                     <h1 className="text-4xl md:text-6xl font-bold text-neutral-content/80">Panagiotis Gkavogiannis</h1>
                     <p className="text-2xl md:text-3xl font-semibold text-secondary">Tech Lead / Team Lead</p>
                     <p className="text-lg text-neutral-content/80 max-w-2xl mx-auto leading-relaxed">
-                        Building scalable, well-documented web applications with modern technologies. Passionate about clean code,
-                        collaboration, and continuous learning.
+                        Senior Full Stack Software Engineer with 6 years of experience delivering enterprise-grade applications for EU
+                        public sector clients — including the European Commission&apos;s Customs domain and the Greek Social Security Fund
+                        (EFKA). Specialised in JavaEE, Angular (eUI Framework), and event-driven architectures. Experienced in technical
+                        mentoring and structured knowledge transfer within regulated, compliance-heavy environments.
                     </p>
                 </div>
 

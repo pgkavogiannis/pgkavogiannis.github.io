@@ -13,14 +13,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ skillBadges }) => (
                     <h2 className="card-title text-3xl md:text-4xl border-b-4 border-primary pb-4">About Me</h2>
 
                     <p className="text-base-content/80 leading-relaxed text-lg mb-4">
-                        Throughout my career as a software developer, I've focused on developing scalable and well-documented code. I enjoy
-                        working collaboratively but can also run projects on my own. With experience in full-stack development, I specialize
-                        in creating efficient solutions using modern technologies.
+                        Senior Full Stack Software Engineer with 6 years of experience delivering enterprise-grade applications for EU
+                        public sector clients — including the European Commission&apos;s Customs domain and the Greek Social Security Fund
+                        (EFKA). Specialised in JavaEE, Angular (eUI Framework), and event-driven architectures. Experienced in technical
+                        mentoring and structured knowledge transfer within regulated, compliance-heavy environments.
                     </p>
 
                     <p className="text-base-content/80 leading-relaxed text-lg mb-6">
-                        My passion lies in solving complex problems, mentoring team members, and continuously learning new technologies. I
-                        believe in writing clean, maintainable code and documenting my work thoroughly for better team collaboration.
+                        My passion lies in solving complex problems and mentoring team members. I&apos;ve authored Confluence knowledge
+                        articles that became part of standard onboarding programmes at two employers, and I enjoy structured knowledge
+                        transfer within regulated environments.
                     </p>
 
                     <div className="divider"></div>

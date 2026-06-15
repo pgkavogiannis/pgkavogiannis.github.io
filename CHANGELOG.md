@@ -19,6 +19,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [0.4.0] - 2026-06-15
+
+### Added
+
+- TravelJox.com side project to the Projects section (React, AngularJS, JavaEE, EclipseLink, Maven, Apache TomEE)
+
+### Changed
+
+- Hero and About bio text updated to match CV profile summary (EU public sector focus, JavaEE / Angular, technical mentoring)
+- Experience section job descriptions rewritten to match CV wording across all five roles; Hellenic Army company name corrected to "KEPYES"
+- Technologies list expanded from 14 to 27 items: added Angular, Azure Cloud, JMS, Oracle WebLogic, WildFly, Apache TomEE, Hibernate, EclipseLink, MariaDB, Drools, jBPM, Confluence; removed PHP and Symfony
+- misthotosifreelancer.gr tech stack updated to include Tailwind CSS
+
 ## [0.3.1] - 2026-06-15
 
 ### Fixed
