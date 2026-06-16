@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [0.4.2] - 2026-06-16
+
+### Fixed
+
+- Footer "Quick Links" now includes a Projects link, aligning it with the header nav
+- About section paragraphs no longer carry extra bottom margin, tightening spacing
+
 ## [0.4.1] - 2026-06-15
 
 ### Changed

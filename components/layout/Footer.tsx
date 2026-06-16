@@ -26,6 +26,12 @@ export const Footer: React.FC = () => (
                         >
                             Experience
                         </a>
+                        <a
+                            href="#projects"
+                            className="block link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
+                        >
+                            Projects
+                        </a>
                         <a href="#skills" className="block link link-hover text-neutral-content/80 hover:text-secondary transition-colors">
                             Skills
                         </a>
