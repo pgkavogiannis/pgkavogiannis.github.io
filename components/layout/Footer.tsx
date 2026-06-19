@@ -46,7 +46,7 @@ export const Footer: React.FC = () => (
                     <h4 className="font-bold text-lg mb-6 border-b-2 border-primary pb-3">Connect</h4>
                     <nav className="space-y-3" aria-label="Social media links">
                         <a
-                            href="https://linkedin.com/in/panagiotis.gkavogiannis"
+                            href="https://linkedin.com/in/panagiotis-gkavogiannis"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-3 link link-hover text-neutral-content/80 hover:text-secondary transition-colors"
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => (
                     <p>&copy; {new Date().getFullYear()} Panagiotis Gkavogiannis. All rights reserved.</p>
                 </div>
                 <div className="text-center md:text-right">
-                    <p>Last Updated: November 2025</p>
+                    <p>Last Updated: June 2026</p>
                 </div>
             </div>
         </ContainerLayout>

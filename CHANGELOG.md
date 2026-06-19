@@ -19,6 +19,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [0.4.3] - 2026-06-19
+
+### Fixed
+
+- Corrected Sword Services job dates to match the latest CV (Tech Lead now starts July 2026, FSE role ends June 2026)
+- Renamed Intrasoft entries to "Intrasoft International (Netcompany)" to reflect the company's current name
+- Updated knowledge-transfer wording to mention XWiki alongside Confluence, matching the latest CV
+- Fixed Footer LinkedIn URL to use the hyphenated handle, matching the Contact section and CV
+- Added missing technologies (JDBC, Sonatype Nexus OSS, Monday.com) from the latest CV's skills list
+- Updated stale Footer "Last Updated" date
+
 ## [0.4.2] - 2026-06-16
 
 ### Fixed

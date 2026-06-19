@@ -9,22 +9,22 @@ import { ContactSection } from '../sections/ContactSection';
 const jobs = [
     {
         jobTitle: 'Tech Lead / Team Lead',
-        jobPeriod: 'June 2026 - Present',
+        jobPeriod: 'July 2026 - Present',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
             "Leading a cross-functional engineering team delivering enterprise applications for the European Commission's Customs Offices. " +
             'Setting technical direction, establishing code quality standards, and driving CI/CD quality gates in Jenkins. ' +
-            'Mentoring junior engineers and overseeing structured knowledge transfer through Confluence documentation.',
+            'Mentoring junior engineers and overseeing structured knowledge transfer through XWiki documentation.',
     },
     {
         jobTitle: 'Full Stack Software Engineer',
-        jobPeriod: 'October 2022 - May 2026',
+        jobPeriod: 'October 2022 - June 2026',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
             "Engineered and maintained enterprise applications for the European Commission's Customs Offices using JavaEE (Maven, EclipseLink) and Angular (eUI Framework). " +
             'Drove test coverage uplift across multiple modules, establishing quality gates in Jenkins CI/CD pipelines that reduced regression defects. ' +
             'Led the local development migration to Azure Cloud, significantly reducing environment provisioning time. ' +
-            "Onboarded and mentored junior engineers, authoring Confluence knowledge articles now part of the team's standard onboarding programme.",
+            "Onboarded and mentored junior engineers, authoring Confluence/XWiki knowledge articles now part of the team's standard onboarding programme.",
     },
     {
         jobTitle: 'Full Stack Software Engineer',
@@ -37,7 +37,7 @@ const jobs = [
     {
         jobTitle: 'Full Stack Software Engineer',
         jobPeriod: 'May 2020 - September 2021',
-        companyTitle: 'Intrasoft International | Athens, Greece',
+        companyTitle: 'Intrasoft International (Netcompany)',
         jobDescription:
             'Engineered applications for the PERSEUS product suite using JavaEE (Maven, Hibernate, Primefaces), deployed on WildFly and WebLogic. ' +
             'Drove local development migration to Docker, improving team onboarding efficiency. ' +
@@ -47,7 +47,7 @@ const jobs = [
     {
         jobTitle: 'Software Trainee',
         jobPeriod: 'November 2019 - April 2020',
-        companyTitle: 'Intrasoft International | Athens, Greece',
+        companyTitle: 'Intrasoft International (Netcompany)',
         jobDescription:
             'Developed applications for the Single Social Security Fund (EFKA / e-ΕΦΚΑ) using JavaEE (Maven, JDBC), Primefaces, and Oracle PL/SQL. ' +
             'Deployed applications on Oracle WebLogic; used both Git and SVN for version control.',
@@ -88,6 +88,9 @@ const technologies = [
     'Tailwind CSS',
     'Jira',
     'Confluence',
+    'JDBC',
+    'Sonatype Nexus OSS',
+    'Monday.com',
 ];
 
 const skillBadges = [
