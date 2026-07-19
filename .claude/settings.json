@@ -11,6 +11,6 @@
         "MAX_THINKING_TOKENS": "10000"
     },
     "permissions": {
-        "deny": ["Read(.env)", "Read(.env.*)", "Glob(**/.env)", "Glob(**/.env.*)"]
+        "deny": ["Read(.env)", "Read(.env.*)", "Read(**/.env)", "Read(**/.env.*)"]
     }
 }
