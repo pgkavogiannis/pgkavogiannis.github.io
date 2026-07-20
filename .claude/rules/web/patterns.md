@@ -1,3 +1,15 @@
+---
+paths:
+  - "**/*.css"
+  - "**/*.scss"
+  - "**/*.sass"
+  - "**/*.less"
+  - "**/*.html"
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.svelte"
+---
 > This file extends [common/patterns.md](../common/patterns.md) with web-specific patterns.
 
 # Web Patterns
@@ -10,12 +22,12 @@ Use compound components when related UI shares state and interaction semantics:
 
 ```tsx
 <Tabs defaultValue="overview">
-    <Tabs.List>
-        <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-        <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
-    </Tabs.List>
-    <Tabs.Content value="overview">...</Tabs.Content>
-    <Tabs.Content value="settings">...</Tabs.Content>
+  <Tabs.List>
+    <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+    <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="overview">...</Tabs.Content>
+  <Tabs.Content value="settings">...</Tabs.Content>
 </Tabs>
 ```
 
@@ -38,12 +50,12 @@ Use compound components when related UI shares state and interaction semantics:
 
 Treat these separately:
 
-| Concern      | Tooling                       |
-| ------------ | ----------------------------- |
-| Server state | TanStack Query, SWR, tRPC     |
-| Client state | Zustand, Jotai, signals       |
-| URL state    | search params, route segments |
-| Form state   | React Hook Form or equivalent |
+| Concern | Tooling |
+|---------|---------|
+| Server state | TanStack Query, SWR, tRPC |
+| Client state | Zustand, Jotai, signals |
+| URL state | search params, route segments |
+| Form state | React Hook Form or equivalent |
 
 - Do not duplicate server state into client stores
 - Derive values instead of storing redundant computed state
@@ -51,7 +63,6 @@ Treat these separately:
 ## URL As State
 
 Persist shareable state in the URL:
-
 - filters
 - sort order
 - pagination

@@ -1,13 +1,12 @@
 ---
 paths:
-    - '**/*.test.tsx'
-    - '**/*.test.jsx'
-    - '**/*.spec.tsx'
-    - '**/*.spec.jsx'
-    - '**/__tests__/**/*.ts'
-    - '**/__tests__/**/*.tsx'
+  - "**/*.test.tsx"
+  - "**/*.test.jsx"
+  - "**/*.spec.tsx"
+  - "**/*.spec.jsx"
+  - "**/__tests__/**/*.ts"
+  - "**/__tests__/**/*.tsx"
 ---
-
 # React Testing
 
 > This file extends [typescript/testing.md](../typescript/testing.md) and [common/testing.md](../common/testing.md) with React specific content.
@@ -35,18 +34,18 @@ Test what the user sees and does, not implementation details.
 RTL exposes queries in three families. Use this priority order top-down:
 
 1. **Accessible to everyone**
-    - `getByRole(role, { name })` — primary choice
-    - `getByLabelText` — for form inputs
-    - `getByPlaceholderText` — when no label is available (and add a label)
-    - `getByText` — for non-interactive text
-    - `getByDisplayValue` — for form fields with a current value
+   - `getByRole(role, { name })` — primary choice
+   - `getByLabelText` — for form inputs
+   - `getByPlaceholderText` — when no label is available (and add a label)
+   - `getByText` — for non-interactive text
+   - `getByDisplayValue` — for form fields with a current value
 
 2. **Semantic queries**
-    - `getByAltText` — for images
-    - `getByTitle` — last resort, low accessibility value
+   - `getByAltText` — for images
+   - `getByTitle` — last resort, low accessibility value
 
 3. **Test IDs**
-    - `getByTestId("some-id")` — escape hatch only, when none of the above work
+   - `getByTestId("some-id")` — escape hatch only, when none of the above work
 
 `getBy*` throws when no match. `queryBy*` returns null (use for asserting absence). `findBy*` returns a promise (use for async).
 
@@ -55,16 +54,16 @@ RTL exposes queries in three families. Use this priority order top-down:
 Prefer `userEvent` over `fireEvent`. `userEvent` simulates real browser sequences (focus, keydown, beforeinput, input, keyup) — `fireEvent` dispatches a single synthetic event.
 
 ```tsx
-import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
 
-test('submits the form', async () => {
-    const user = userEvent.setup();
-    render(<UserForm onSubmit={handleSubmit} />);
+test("submits the form", async () => {
+  const user = userEvent.setup();
+  render(<UserForm onSubmit={handleSubmit} />);
 
-    await user.type(screen.getByLabelText('Email'), 'user@example.com');
-    await user.click(screen.getByRole('button', { name: /save/i }));
+  await user.type(screen.getByLabelText("Email"), "user@example.com");
+  await user.click(screen.getByRole("button", { name: /save/i }));
 
-    expect(handleSubmit).toHaveBeenCalledWith({ email: 'user@example.com' });
+  expect(handleSubmit).toHaveBeenCalledWith({ email: "user@example.com" });
 });
 ```
 
@@ -75,10 +74,10 @@ test('submits the form', async () => {
 
 ```tsx
 // WRONG: synchronous query for async-rendered content
-expect(screen.getByText('Loaded')).toBeInTheDocument(); // throws — not in DOM yet
+expect(screen.getByText("Loaded")).toBeInTheDocument();   // throws — not in DOM yet
 
 // CORRECT: findBy* (returns a promise, retries)
-expect(await screen.findByText('Loaded')).toBeInTheDocument();
+expect(await screen.findByText("Loaded")).toBeInTheDocument();
 
 // CORRECT: waitFor for non-element assertions
 await waitFor(() => expect(saveSpy).toHaveBeenCalled());
@@ -94,10 +93,14 @@ Use Mock Service Worker for any test that hits a network boundary. MSW runs at t
 
 ```tsx
 // test setup
-import { setupServer } from 'msw/node';
-import { http, HttpResponse } from 'msw';
+import { setupServer } from "msw/node";
+import { http, HttpResponse } from "msw";
 
-const server = setupServer(http.get('/api/users/:id', ({ params }) => HttpResponse.json({ id: params.id, name: 'Alice' })));
+const server = setupServer(
+  http.get("/api/users/:id", ({ params }) =>
+    HttpResponse.json({ id: params.id, name: "Alice" }),
+  ),
+);
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -107,10 +110,10 @@ afterAll(() => server.close());
 Per-test override:
 
 ```tsx
-test('renders error on 500', async () => {
-    server.use(http.get('/api/users/:id', () => new HttpResponse(null, { status: 500 })));
-    render(<UserPage id="1" />);
-    expect(await screen.findByText(/something went wrong/i)).toBeInTheDocument();
+test("renders error on 500", async () => {
+  server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500 })));
+  render(<UserPage id="1" />);
+  expect(await screen.findByText(/something went wrong/i)).toBeInTheDocument();
 });
 ```
 
@@ -129,13 +132,13 @@ Wrap providers once:
 
 ```tsx
 function renderWithProviders(ui: React.ReactElement) {
-    return render(
-        <QueryClientProvider client={new QueryClient()}>
-            <ThemeProvider theme={lightTheme}>
-                <Router>{ui}</Router>
-            </ThemeProvider>
-        </QueryClientProvider>
-    );
+  return render(
+    <QueryClientProvider client={new QueryClient()}>
+      <ThemeProvider theme={lightTheme}>
+        <Router>{ui}</Router>
+      </ThemeProvider>
+    </QueryClientProvider>,
+  );
 }
 ```
 
@@ -146,12 +149,12 @@ Export from `test-utils.tsx` and use everywhere.
 Use `renderHook` from RTL:
 
 ```tsx
-import { renderHook, act } from '@testing-library/react';
+import { renderHook, act } from "@testing-library/react";
 
-test('useCounter increments', () => {
-    const { result } = renderHook(() => useCounter());
-    act(() => result.current.increment());
-    expect(result.current.count).toBe(1);
+test("useCounter increments", () => {
+  const { result } = renderHook(() => useCounter());
+  act(() => result.current.increment());
+  expect(result.current.count).toBe(1);
 });
 ```
 
@@ -161,11 +164,11 @@ test('useCounter increments', () => {
 ## Accessibility Assertions
 
 ```tsx
-import { axe } from 'vitest-axe'; // or jest-axe
+import { axe } from "vitest-axe";   // or jest-axe
 
-test('UserCard has no a11y violations', async () => {
-    const { container } = render(<UserCard user={mockUser} />);
-    expect(await axe(container)).toHaveNoViolations();
+test("UserCard has no a11y violations", async () => {
+  const { container } = render(<UserCard user={mockUser} />);
+  expect(await axe(container)).toHaveNoViolations();
 });
 ```
 
@@ -184,13 +187,13 @@ For those, use Playwright Component Testing or end-to-end Playwright/Cypress run
 
 ## Coverage Targets
 
-| Layer                          | Target                             |
-| ------------------------------ | ---------------------------------- |
-| Pure utility functions         | ≥90%                               |
-| Custom hooks                   | ≥85%                               |
-| Components (presentational)    | ≥80% — behavior, not lines         |
-| Container components           | ≥70% — golden paths + error states |
-| Pages (E2E covered separately) | Smoke test per route minimum       |
+| Layer | Target |
+|---|---|
+| Pure utility functions | ≥90% |
+| Custom hooks | ≥85% |
+| Components (presentational) | ≥80% — behavior, not lines |
+| Container components | ≥70% — golden paths + error states |
+| Pages (E2E covered separately) | Smoke test per route minimum |
 
 ## Anti-Patterns
 

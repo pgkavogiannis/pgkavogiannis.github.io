@@ -1,3 +1,15 @@
+---
+paths:
+  - "**/*.css"
+  - "**/*.scss"
+  - "**/*.sass"
+  - "**/*.less"
+  - "**/*.html"
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.svelte"
+---
 > This file extends [common/hooks.md](../common/hooks.md) with web-specific hook recommendations.
 
 # Web Hooks
@@ -12,15 +24,15 @@ Use the project's existing formatter entrypoint after edits:
 
 ```json
 {
-    "hooks": {
-        "PostToolUse": [
-            {
-                "matcher": "Write|Edit",
-                "command": "pnpm prettier --write \"$FILE_PATH\"",
-                "description": "Format edited frontend files"
-            }
-        ]
-    }
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "command": "pnpm prettier --write \"$FILE_PATH\"",
+        "description": "Format edited frontend files"
+      }
+    ]
+  }
 }
 ```
 
@@ -30,15 +42,15 @@ Equivalent local commands via `yarn prettier` or `npm exec prettier --` are fine
 
 ```json
 {
-    "hooks": {
-        "PostToolUse": [
-            {
-                "matcher": "Write|Edit",
-                "command": "pnpm eslint --fix \"$FILE_PATH\"",
-                "description": "Run ESLint on edited frontend files"
-            }
-        ]
-    }
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "command": "pnpm eslint --fix \"$FILE_PATH\"",
+        "description": "Run ESLint on edited frontend files"
+      }
+    ]
+  }
 }
 ```
 
@@ -48,20 +60,19 @@ Use `--incremental` so re-runs reuse the previous `.tsbuildinfo` (1-3s on unchan
 
 ```json
 {
-    "hooks": {
-        "PostToolUse": [
-            {
-                "matcher": "Write|Edit",
-                "command": "timeout 60 pnpm tsc --noEmit --pretty false --incremental --tsBuildInfoFile node_modules/.cache/tsc-hook.tsbuildinfo",
-                "description": "Type-check after frontend edits (incremental + timeout-capped)"
-            }
-        ]
-    }
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "command": "timeout 60 pnpm tsc --noEmit --pretty false --incremental --tsBuildInfoFile node_modules/.cache/tsc-hook.tsbuildinfo",
+        "description": "Type-check after frontend edits (incremental + timeout-capped)"
+      }
+    ]
+  }
 }
 ```
 
 **Why both flags matter:**
-
 - Without `--incremental`, every edit re-checks the entire program from scratch. On a real Next.js project this stacks fast: edits at 5-10s intervals + 30-60s tsc runs = N concurrent tsc processes.
 - Without `timeout`, a tsc that hangs (transitive dep change, type-checker stuck on a recursive type) never exits and orphans when the parent shell does.
 - `--tsBuildInfoFile` is required because `--noEmit` normally suppresses the buildinfo write; specifying the path explicitly keeps incremental working.
@@ -72,15 +83,15 @@ If you're on Windows without GNU coreutils, swap `timeout 60` for a PowerShell w
 
 ```json
 {
-    "hooks": {
-        "PostToolUse": [
-            {
-                "matcher": "Write|Edit",
-                "command": "pnpm stylelint --fix \"$FILE_PATH\"",
-                "description": "Lint edited stylesheets"
-            }
-        ]
-    }
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "command": "pnpm stylelint --fix \"$FILE_PATH\"",
+        "description": "Lint edited stylesheets"
+      }
+    ]
+  }
 }
 ```
 
@@ -92,15 +103,15 @@ Block oversized writes from tool input content, not from a file that may not exi
 
 ```json
 {
-    "hooks": {
-        "PreToolUse": [
-            {
-                "matcher": "Write",
-                "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const c=i.tool_input?.content||'';const lines=c.split('\\n').length;if(lines>800){console.error('[Hook] BLOCKED: File exceeds 800 lines ('+lines+' lines)');console.error('[Hook] Split into smaller modules');process.exit(2)}console.log(d)})\"",
-                "description": "Block writes that exceed 800 lines"
-            }
-        ]
-    }
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const c=i.tool_input?.content||'';const lines=c.split('\\n').length;if(lines>800){console.error('[Hook] BLOCKED: File exceeds 800 lines ('+lines+' lines)');console.error('[Hook] Split into smaller modules');process.exit(2)}console.log(d)})\"",
+        "description": "Block writes that exceed 800 lines"
+      }
+    ]
+  }
 }
 ```
 
@@ -110,21 +121,20 @@ Block oversized writes from tool input content, not from a file that may not exi
 
 ```json
 {
-    "hooks": {
-        "Stop": [
-            {
-                "command": "pnpm build",
-                "description": "Verify the production build at session end"
-            }
-        ]
-    }
+  "hooks": {
+    "Stop": [
+      {
+        "command": "pnpm build",
+        "description": "Verify the production build at session end"
+      }
+    ]
+  }
 }
 ```
 
 ## Ordering
 
 Recommended order:
-
 1. format
 2. lint
 3. type check

@@ -1,13 +1,12 @@
 ---
 paths:
-    - '**/*.tsx'
-    - '**/*.jsx'
-    - '**/components/**/*.ts'
-    - '**/components/**/*.js'
-    - '**/app/**/*.tsx'
-    - '**/pages/**/*.tsx'
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/components/**/*.ts"
+  - "**/components/**/*.js"
+  - "**/app/**/*.tsx"
+  - "**/pages/**/*.tsx"
 ---
-
 # React Patterns
 
 > This file extends [typescript/patterns.md](../typescript/patterns.md) and [common/patterns.md](../common/patterns.md) with React specific content. For hook-specific rules see [hooks.md](./hooks.md).
@@ -19,15 +18,15 @@ Container components own data fetching, state, and side effects. Presentational 
 ```tsx
 // Container — owns data
 export function UserPage({ userId }: { userId: string }) {
-    const { data: user, isLoading } = useUser(userId);
-    if (isLoading) return <Spinner />;
-    if (!user) return <NotFound />;
-    return <UserCard user={user} onSelect={handleSelect} />;
+  const { data: user, isLoading } = useUser(userId);
+  if (isLoading) return <Spinner />;
+  if (!user) return <NotFound />;
+  return <UserCard user={user} onSelect={handleSelect} />;
 }
 
 // Presentational — pure
 export function UserCard({ user, onSelect }: { user: User; onSelect: (id: string) => void }) {
-    return <button onClick={() => onSelect(user.id)}>{user.name}</button>;
+  return <button onClick={() => onSelect(user.id)}>{user.name}</button>;
 }
 ```
 
@@ -51,19 +50,15 @@ Context misused for frequently changing values causes every consumer to re-rende
 ```tsx
 // Server (default)
 export default async function Page() {
-    const user = await fetchUser();
-    return <UserClient user={user} />;
+  const user = await fetchUser();
+  return <UserClient user={user} />;
 }
 
 // Client
-('use client');
+"use client";
 export function UserClient({ user }: { user: User }) {
-    const [tab, setTab] = useState('profile');
-    return (
-        <Tabs value={tab} onChange={setTab}>
-            {user.name}
-        </Tabs>
-    );
+  const [tab, setTab] = useState("profile");
+  return <Tabs value={tab} onChange={setTab}>{user.name}</Tabs>;
 }
 ```
 
@@ -76,9 +71,9 @@ Every Suspense boundary needs an Error Boundary above it. The pair handles both 
 
 ```tsx
 <ErrorBoundary fallback={<ErrorView />}>
-    <Suspense fallback={<Skeleton />}>
-        <UserDetails id={id} />
-    </Suspense>
+  <Suspense fallback={<Skeleton />}>
+    <UserDetails id={id} />
+  </Suspense>
 </ErrorBoundary>
 ```
 
@@ -94,17 +89,17 @@ Prefer uncontrolled inputs with form actions when the form has a clear submit st
 
 ```tsx
 async function action(formData: FormData) {
-    'use server';
-    await saveUser({ name: String(formData.get('name')) });
+  "use server";
+  await saveUser({ name: String(formData.get("name")) });
 }
 
 export function UserForm() {
-    return (
-        <form action={action}>
-            <input name="name" required />
-            <button type="submit">Save</button>
-        </form>
-    );
+  return (
+    <form action={action}>
+      <input name="name" required />
+      <button type="submit">Save</button>
+    </form>
+  );
 }
 ```
 
@@ -113,7 +108,7 @@ export function UserForm() {
 Use controlled inputs when the value drives other UI, requires real-time validation, or formatting.
 
 ```tsx
-const [email, setEmail] = useState('');
+const [email, setEmail] = useState("");
 return <input value={email} onChange={(e) => setEmail(e.target.value)} />;
 ```
 
@@ -127,12 +122,12 @@ For complex forms (multi-step, dynamic field arrays, cross-field validation), us
 
 ## Data Fetching
 
-| Strategy                                | When                                                                                     |
-| --------------------------------------- | ---------------------------------------------------------------------------------------- |
-| RSC fetch (`await` in Server Component) | Per-request data in Next.js App Router, no client-side cache needed                      |
-| TanStack Query                          | Client-side cache, mutations, optimistic updates, polling                                |
-| SWR                                     | Lightweight cache + revalidation, simpler than TanStack Query                            |
-| `fetch` in `useEffect`                  | Avoid — race conditions, no cache, no retry. Only acceptable for one-off fire-and-forget |
+| Strategy | When |
+|---|---|
+| RSC fetch (`await` in Server Component) | Per-request data in Next.js App Router, no client-side cache needed |
+| TanStack Query | Client-side cache, mutations, optimistic updates, polling |
+| SWR | Lightweight cache + revalidation, simpler than TanStack Query |
+| `fetch` in `useEffect` | Avoid — race conditions, no cache, no retry. Only acceptable for one-off fire-and-forget |
 
 Never fetch in a `useEffect` when a real cache library is available — they handle deduping, cache invalidation, error retry, and Suspense integration.
 
@@ -155,16 +150,12 @@ For related controls (Tabs, Accordion, Menu), use compound components sharing st
 
 ```tsx
 <Tabs defaultValue="profile">
-    <Tabs.List>
-        <Tabs.Trigger value="profile">Profile</Tabs.Trigger>
-        <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
-    </Tabs.List>
-    <Tabs.Panel value="profile">
-        <ProfileForm />
-    </Tabs.Panel>
-    <Tabs.Panel value="settings">
-        <SettingsForm />
-    </Tabs.Panel>
+  <Tabs.List>
+    <Tabs.Trigger value="profile">Profile</Tabs.Trigger>
+    <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Panel value="profile"><ProfileForm /></Tabs.Panel>
+  <Tabs.Panel value="settings"><SettingsForm /></Tabs.Panel>
 </Tabs>
 ```
 
@@ -178,7 +169,7 @@ React 19 lets function components accept `ref` as a regular prop — `forwardRef
 
 ```tsx
 export function Input({ ref, ...rest }: { ref?: React.Ref<HTMLInputElement> } & InputProps) {
-    return <input ref={ref} {...rest} />;
+  return <input ref={ref} {...rest} />;
 }
 ```
 
