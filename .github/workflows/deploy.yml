@@ -16,11 +16,8 @@ concurrency:
     cancel-in-progress: false
 
 jobs:
-    build-and-deploy:
+    build:
         runs-on: ubuntu-latest
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
 
         strategy:
             matrix:
@@ -67,13 +64,23 @@ jobs:
             - name: Create .nojekyll file
               run: touch out/.nojekyll
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v5
-
             - name: Upload Pages artifact
+              if: github.event_name == 'push'
               uses: actions/upload-pages-artifact@v3
               with:
                   path: ./out
+
+    deploy:
+        if: github.event_name == 'push'
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        steps:
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
 
             - name: Deploy to GitHub Pages
               id: deployment
