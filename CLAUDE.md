@@ -12,17 +12,22 @@ Personal portfolio website built with Next.js, statically exported and deployed 
 yarn dev          # Start development server
 yarn build        # Create static export (outputs to /out)
 yarn lint         # Run ESLint
-yarn deploy       # Build, create .nojekyll, and push to gh-pages branch
+yarn format       # Format with Prettier
+yarn deploy       # Manual path: build, create .nojekyll, git-subtree push to gh-pages branch
 ```
+
+CI (`.github/workflows/deploy.yml`) deploys on push to `main`/`master` via the official
+GitHub Pages Actions (`upload-pages-artifact` + `deploy-pages`) — it does NOT push to a
+`gh-pages` branch. `yarn deploy` is a separate, manual legacy path.
 
 ## Tech Stack
 
 - **Next.js 16** with static export (`output: 'export'`)
-- **React 19** with TypeScript 5
+- **React 19** with TypeScript 6
 - **Tailwind CSS 4** with DaisyUI 5 component library
 - **Sass** for additional styling
-- **FontAwesome 7** for icons
-- Node 21.7.3 / Yarn 1.22.22 (pinned via Volta)
+- Hand-rolled inline-SVG icon components (`components/icons/`), no icon library
+- Node 24.16.0 / Yarn 4.16.0 (Berry, via Corepack) — pinned via Volta
 
 ## Architecture
 
@@ -49,6 +54,11 @@ yarn deploy       # Build, create .nojekyll, and push to gh-pages branch
 
 **Static Export**: Images use `unoptimized: true` in `next.config.js` for GitHub Pages compatibility.
 
+**Pre-commit hooks**: Husky runs `lint-staged` (ESLint + Prettier on staged files) and
+`tsc --noEmit` before every commit; commit messages must follow Conventional Commits
+(enforced by commitlint).
+
 ## Deployment
 
-GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically builds and deploys to `gh-pages` branch on push to main.
+GitHub Actions workflow (`.github/workflows/deploy.yml`) builds on push to `main`/`master`
+and deploys via GitHub's native Pages deployment (Pages artifact upload, not a branch push).
