@@ -7,10 +7,7 @@
         "gitlab@claude-plugins-official": true,
         "skill-creator@claude-plugins-official": false
     },
-    "env": {
-        "MAX_THINKING_TOKENS": "10000"
-    },
     "permissions": {
-        "deny": ["Read(.env)", "Read(.env.*)", "Read(**/.env)", "Read(**/.env.*)"]
+        "deny": ["Read(.env)", "Read(.env.*)", "Read(!.env.example)"]
     }
 }
