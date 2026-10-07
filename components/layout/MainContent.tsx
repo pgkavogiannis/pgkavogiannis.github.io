@@ -9,7 +9,7 @@ import { ContactSection } from '../sections/ContactSection';
 const jobs = [
     {
         jobTitle: 'Tech Lead / Team Lead',
-        jobPeriod: 'July 2026 - Present',
+        jobPeriod: 'August 2026 - Present',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
             "Leading a cross-functional engineering team delivering enterprise applications for the European Commission's Customs Offices. " +
@@ -18,7 +18,7 @@ const jobs = [
     },
     {
         jobTitle: 'Full Stack Software Engineer',
-        jobPeriod: 'October 2022 - June 2026',
+        jobPeriod: 'October 2022 - July 2026',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
             "Engineered and maintained enterprise applications for the European Commission's Customs Offices using JavaEE (Maven, EclipseLink) and Angular (eUI Framework). " +

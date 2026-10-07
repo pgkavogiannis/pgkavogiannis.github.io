@@ -106,7 +106,7 @@ export const Footer: React.FC = () => (
                     <p>&copy; {new Date().getFullYear()} Panagiotis Gkavogiannis. All rights reserved.</p>
                 </div>
                 <div className="text-center md:text-right">
-                    <p>Last Updated: June 2026</p>
+                    <p>Last Updated: October 2026</p>
                 </div>
             </div>
         </ContainerLayout>
