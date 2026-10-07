@@ -9,7 +9,7 @@ import { ContactSection } from '../sections/ContactSection';
 const jobs = [
     {
         jobTitle: 'Tech Lead / Team Lead',
-        jobPeriod: 'July 2026 - Present',
+        jobPeriod: 'August 2026 - Present',
         companyTitle: 'Sword Services Greece S.A.',
         jobDescription:
             "Leading a cross-functional engineering team delivering enterprise applications for the European Commission's Customs Offices. " +
