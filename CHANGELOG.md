@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Corrected the Tech Lead / Team Lead start date to August 2026 to match LinkedIn and the CV
+- Corrected the Tech Lead / Team Lead start date to August 2026 and the Full Stack Software Engineer end date to July 2026 to match LinkedIn and the CV
 - Updated Footer "Last Updated" date to October 2026
 
 ### Security
